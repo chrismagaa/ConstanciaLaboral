@@ -255,17 +255,17 @@ class EditPlantillaFragment : Fragment() {
     }
 
     private fun crearPreview() {
-        var lugar = binding.textInputCiudad.editText!!.text.toString()
-        var fecha = binding.textInputFecha.editText!!.text.toString()
-        var nombreTrabajador = binding.textInputTrabajador.editText!!.text.toString()
-        var nombreFirma = binding.textInputNombreFirma.editText!!.text.toString()
-        var fechaInicio = binding.textInputFechaInicio.editText!!.text.toString()
-        var fechaSalida = binding.textInputFechaSalida.editText!!.text.toString()
-        var puesto = binding.textInputPuesto.editText!!.text.toString()
-        var nombreEmpresa = binding.textInputEmpresa.editText!!.text.toString()
-        var dni = binding.textInputDni.editText!!.text.toString()
-        var sueldo = binding.textInputSueldo.editText!!.text.toString()
-        var numeroEmisor = binding.textInputNumeroEmisor.editText!!.text.toString()
+        var lugar = binding.etCiudad.text.toString()
+        var fecha = binding.etFecha.text.toString()
+        var nombreTrabajador = binding.etTrabajador.text.toString()
+        var nombreFirma = binding.etNombreFirma.text.toString()
+        var fechaInicio = binding.etFechaInicio.text.toString()
+        var fechaSalida = binding.etFechaSalida.text.toString()
+        var puesto = binding.etPuesto.text.toString()
+        var nombreEmpresa = binding.etEmpresa.text.toString()
+        var dni = binding.etDni.text.toString()
+        var sueldo = binding.etSueldo.text.toString()
+        var numeroEmisor = binding.etNumeroEmisor.text.toString()
 
         var sexo = 0
         if (binding.radioButtonM.isChecked) {

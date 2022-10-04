@@ -116,10 +116,10 @@ class CartaLibreFragment : Fragment() {
         val sizeLetter: Float = binding.spinnerSizeLetter.selectedItem.toString().toFloat()
 
         val plantilla = PlantillaLibre(
-            binding.inputCiudad.text(),
-            binding.inputFecha.text(),
-            binding.inputCuerpo.text(),
-            binding.inputFirma.text(),
+            binding.etCiudad.text.toString(),
+            binding.etFecha.text.toString(),
+            binding.etCuerpo.text.toString(),
+            binding.etFirma.text.toString(),
             sizeLetter
         )
         plantilla.createPdf(outputFile)

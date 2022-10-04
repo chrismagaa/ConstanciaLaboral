@@ -47,6 +47,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/inputCuerpo">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etFirma"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/txt_nombre_de_firma" />
@@ -87,6 +88,7 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etCiudad"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/txt_ciudad" />
@@ -105,6 +107,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/inputCiudad">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etFecha"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/tx_fecha" />
@@ -123,6 +126,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/inputFecha">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etCuerpo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/txt_cuerpo"

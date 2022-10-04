@@ -68,14 +68,14 @@ class MainActivity : AppCompatActivity(),ValorarDialogFragment.ValorarDialogInte
         val shareP = this.getSharedPreferences(SETTING_PROYECTO, Context.MODE_PRIVATE)
         var conteoValorarApp = shareP.getInt(CONTEO_PARA_VALORAR_APP, 0)
 
-        if(conteoValorarApp==15){
+        if(conteoValorarApp==3){
             var dialogValorar = ValorarDialogFragment()
             dialogValorar.show(supportFragmentManager, "ValorarDialogFragment")
             with(shareP!!.edit()){
                 putInt(CONTEO_PARA_VALORAR_APP, conteoValorarApp+1)
                 commit()
             }
-        }else if(conteoValorarApp<15){
+        }else if(conteoValorarApp<3){
             with(shareP!!.edit()){
                 putInt(CONTEO_PARA_VALORAR_APP, conteoValorarApp+1)
                 commit()

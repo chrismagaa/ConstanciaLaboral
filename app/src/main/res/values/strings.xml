@@ -25,7 +25,7 @@
     <string name="txt_fecha_inicio">Fecha inicio</string>
     <string name="txt_fecha_salida">Fecha salida</string>
     <string name="txt_te_gusta_esta_app">¿Te gusta esta aplicación?</string>
-    <string name="txt_valorarnos">Valorarme me ayudaría para seguir mejorando</string>
+    <string name="txt_valorarnos">Hola, valorar la aplicación me ayudaría para seguir mejorando</string>
     <string name="txt_valorar_estrellas">Sí, valorar con 5 estrellas :)</string>
     <string name="txt_mandar_retro">No, mandar retroalimentación.</string>
     <string name="txt_nombre_firma">Nombre del emisor</string>
