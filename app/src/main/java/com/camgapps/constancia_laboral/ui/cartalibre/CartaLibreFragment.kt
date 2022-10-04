@@ -3,6 +3,8 @@ package com.camgapps.constancia_laboral.ui.cartalibre
 import android.app.DatePickerDialog
 import android.os.Bundle
 import android.view.*
+import android.widget.ArrayAdapter
+import android.widget.Spinner
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -19,10 +21,13 @@ class CartaLibreFragment : Fragment() {
 
     lateinit var setListener: DatePickerDialog.OnDateSetListener
 
-    val df = SimpleDateFormat("d/MMMM/yyyy", Locale.getDefault())
+    val df = SimpleDateFormat("d 'de' MMMM 'del' yyyy", Locale.getDefault())
     private var day by Delegates.notNull<Int>()
     private var month by Delegates.notNull<Int>()
     private var year by Delegates.notNull<Int>()
+
+    val listSizeLetters  = arrayOf("12", "13", "14","16", "17","18", "19")
+    val selectionSizeLetter = 3
 
     private var _binding: FragmentCartaLibreBinding? = null
     val binding get() = _binding!!
@@ -41,6 +46,16 @@ class CartaLibreFragment : Fragment() {
         year = calendarHoy.get(Calendar.YEAR)
 
         initListeners()
+
+        val spinner: Spinner = binding.spinnerSizeLetter
+        ArrayAdapter( requireContext(), android.R.layout.simple_spinner_item, listSizeLetters).also { adapter ->
+            // Specify the layout to use when the list of choices appears
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            // Apply the adapter to the spinner
+            spinner.adapter = adapter
+        }
+
+        spinner.setSelection(selectionSizeLetter)
 
         setHasOptionsMenu(true)
 
@@ -98,11 +113,14 @@ class CartaLibreFragment : Fragment() {
         outputFile = File.createTempFile(UUID.randomUUID().toString(), ".pdf", outputDir)
         outputFile.deleteOnExit()
 
+        val sizeLetter: Float = binding.spinnerSizeLetter.selectedItem.toString().toFloat()
+
         val plantilla = PlantillaLibre(
             binding.inputCiudad.text(),
             binding.inputFecha.text(),
             binding.inputCuerpo.text(),
-            binding.inputFirma.text()
+            binding.inputFirma.text(),
+            sizeLetter
         )
         plantilla.createPdf(outputFile)
 

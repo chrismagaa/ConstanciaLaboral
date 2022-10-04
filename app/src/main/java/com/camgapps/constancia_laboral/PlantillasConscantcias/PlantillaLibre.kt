@@ -12,10 +12,10 @@ import java.io.File
 class PlantillaLibre(var ciudad: String,
                      var fecha: String,
                      var cuerpo: String,
-                     var nombreFirma: String
+                     var nombreFirma: String,
+                     var tamanoLetra: Float
 ) {
 
-    val tamanoLetra = 16F
 
 
     fun createPdf(file: File, bitmapSign: Bitmap? = null){
@@ -27,9 +27,7 @@ class PlantillaLibre(var ciudad: String,
 
         //Ciudad y Fecha
 
-        var arrayFecha = fecha.split("/")
-        var nuevaFecha = if(arrayFecha.size > 1) "${arrayFecha[0]} de ${arrayFecha[1]} del  ${arrayFecha[2]}" else ""
-        val pLugarFecha = Paragraph("\n$ciudad, $nuevaFecha\n\n").setTextAlignment(TextAlignment.RIGHT)
+        val pLugarFecha = Paragraph("\n$ciudad, $fecha\n\n").setTextAlignment(TextAlignment.RIGHT)
             .setFontSize(tamanoLetra)
 
         //Cuerpo

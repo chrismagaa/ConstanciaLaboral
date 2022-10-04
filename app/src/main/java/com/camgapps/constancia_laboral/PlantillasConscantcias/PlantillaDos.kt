@@ -35,7 +35,8 @@ class PlantillaDos(
     var puesto: String,
     var sexo: Int,
     var dni: String,
-    var numero: String
+    var numero: String,
+    var tamanoLetra: Float
 ) {
 
     companion object {
@@ -57,7 +58,6 @@ class PlantillaDos(
         }
     }
 
-    val tamanoLetra = 16F
 
 
     var strContexto = "Departamento de RRHH de [nombreEmpresa]\n\n" +
@@ -113,20 +113,14 @@ class PlantillaDos(
         } else {
             sr = "la Srta."
         }
-        val arrayFecha = fecha.split("/")
-        val nuevaFecha = "${arrayFecha[0]} de ${arrayFecha[1]} del  ${arrayFecha[2]}"
-        val arrayFechaInicio = fechaInicio.split("/")
-        val nuevaFechaInicio = "${arrayFechaInicio[1]} del ${arrayFechaInicio[2]}"
-        val arrayFechaSalida = fechaSalida.split("/")
-        var nuevaFechaSalida = "${arrayFechaSalida[1]} del ${arrayFechaSalida[2]}"
         var strContextoNuevo = strContexto.replace("[sr]", sr)
             .replace("[ciudad]", ciudad)
-            .replace("[fecha]", nuevaFecha)
+            .replace("[fecha]", fecha)
             .replace("[dni]", dni)
             .replace("[nombreTrabajador]", nombreTrabajor)
             .replace("[puesto]", puesto)
-            .replace("[fechaInicio]", nuevaFechaInicio)
-            .replace("[fechaSalida]", nuevaFechaSalida)
+            .replace("[fechaInicio]", fechaInicio)
+            .replace("[fechaSalida]", fechaSalida)
             .replace("[nombreEmpresa]", nombreEmpresa)
 
         val pContexto = Paragraph(strContextoNuevo).setTextAlignment(TextAlignment.JUSTIFIED).setFontSize(

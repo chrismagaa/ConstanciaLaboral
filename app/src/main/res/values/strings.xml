@@ -72,5 +72,6 @@
     <string name="txt_descargar">Descargar</string>
     <string name="txt_nombre_de_firma">Nombre Firma</string>
     <string name="txt_cuerpo">Cuerpo</string>
+    <string name="txt_tamano_letra">Tamaño de letra</string>
 
 </resources>

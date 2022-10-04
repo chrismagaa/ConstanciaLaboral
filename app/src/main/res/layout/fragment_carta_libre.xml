@@ -32,7 +32,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/inputFirma" />
+                app:layout_constraintTop_toBottomOf="@+id/spinnerSizeLetter" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/inputFirma"
@@ -51,6 +51,28 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/txt_nombre_de_firma" />
             </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/txt_tamano_letra"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/spinnerSizeLetter"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/inputFirma" />
+
+
+            <Spinner
+                android:id="@+id/spinnerSizeLetter"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/inputFirma" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/inputCiudad"
@@ -85,7 +107,6 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:enabled="false"
                     android:hint="@string/tx_fecha" />
             </com.google.android.material.textfield.TextInputLayout>
 

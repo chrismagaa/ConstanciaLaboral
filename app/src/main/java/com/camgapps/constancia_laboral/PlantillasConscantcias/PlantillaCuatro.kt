@@ -19,6 +19,7 @@ class PlantillaCuatro (
         var sueldo: String,
         var numeroEmisor: String,
         var nombreEmpresa: String,
+        var tamanoLetra: Float
 ) {
 
     companion object {
@@ -37,7 +38,6 @@ class PlantillaCuatro (
         }
     }
 
-    val tamanoLetra = 16F
 
 
     var strContexto = "A quien corresponda: \n\n" +
@@ -59,18 +59,15 @@ class PlantillaCuatro (
         document.add(pEmpresa)
 
         //Ciudad y Fecha
-        val arrayFecha = fecha.split("/")
-        val nuevaFecha = "${arrayFecha[0]} de ${arrayFecha[1]} del  ${arrayFecha[2]}"
 
-        val pLugarFecha = Paragraph("\n$ciudad, $nuevaFecha\n\n").setTextAlignment(TextAlignment.RIGHT).setFontSize(tamanoLetra)
+        val pLugarFecha = Paragraph("\n$ciudad, $fecha\n\n").setTextAlignment(TextAlignment.RIGHT).setFontSize(tamanoLetra)
 
         //Cuerpo
-        val arrayFechaInicio = fechaInicio.split("/")
-        val nuevaFechaInicio = "${arrayFechaInicio[1]} del ${arrayFechaInicio[2]}"
+
         var strContextoNuevo = strContexto
                 .replace("[nombreTrabajador]", nombreTrabajor)
                 .replace("[puesto]", puesto)
-                .replace("[fechaInicio]", nuevaFechaInicio)
+                .replace("[fechaInicio]", fechaInicio)
                 .replace("[nombreEmpresa]", nombreEmpresa)
                 .replace("[salario]", sueldo)
 

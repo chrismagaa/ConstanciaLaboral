@@ -19,6 +19,7 @@ class PlantillaTres(
     var puesto: String,
     var sexo: Int,
     var nombreEmpresa: String,
+    var tamanoLetra: Float
 ) {
 
     companion object {
@@ -37,7 +38,6 @@ class PlantillaTres(
         }
     }
 
-    val tamanoLetra = 16F
 
     var strTitulo = "GERENTE DE RECURSOS HUMANOS\n\nHACE CONSTAR:\n\n"
 
@@ -62,11 +62,8 @@ class PlantillaTres(
         document.add(pEmpresa)
 
         //Ciudad y Fecha
-        val arrayFecha = fecha.split("/")
-        val nuevaFecha = "${arrayFecha[0]} de ${arrayFecha[1]} del  ${arrayFecha[2]}"
-
         val pLugarFecha =
-            Paragraph("\n$ciudad, $nuevaFecha\n\n").setTextAlignment(TextAlignment.LEFT).setFontSize(tamanoLetra)
+            Paragraph("\n$ciudad, $fecha\n\n").setTextAlignment(TextAlignment.LEFT).setFontSize(tamanoLetra)
 
 
         //Titulo
@@ -82,15 +79,12 @@ class PlantillaTres(
             sr = "la Srta."
         }
 
-        val arrayFechaInicio = fechaInicio.split("/")
-        val nuevaFechaInicio = "${arrayFechaInicio[1]} del ${arrayFechaInicio[2]}"
-        val arrayFechaSalida = fechaSalida.split("/")
-        var nuevaFechaSalida = "${arrayFechaSalida[1]} del ${arrayFechaSalida[2]}"
+
         var strContextoNuevo = strContexto.replace("[sr]", sr)
             .replace("[nombreTrabajador]", nombreTrabajor)
             .replace("[puesto]", puesto)
-            .replace("[fechaInicio]", nuevaFechaInicio)
-            .replace("[fechaSalida]", nuevaFechaSalida)
+            .replace("[fechaInicio]", fechaInicio)
+            .replace("[fechaSalida]", fechaSalida)
 
         val pContexto = Paragraph(strContextoNuevo).setTextAlignment(TextAlignment.JUSTIFIED).setFontSize(tamanoLetra)
 

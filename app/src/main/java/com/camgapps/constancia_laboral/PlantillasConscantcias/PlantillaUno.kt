@@ -29,7 +29,8 @@ class PlantillaUno(
     var fechaSalida: String,
     var puesto: String,
     var sexo: Int,
-    var numero: String
+    var numero: String,
+    var tamanoLetra: Float,
 ) {
 
     companion object {
@@ -50,7 +51,6 @@ class PlantillaUno(
         }
     }
 
-    val tamanoLetra = 16F
 
 
     var strContexto = "A quien corresponda: \n\n" +
@@ -89,11 +89,8 @@ class PlantillaUno(
         }
 
         //Ciudad y Fecha
-        val arrayFecha = fecha.split("/")
-        val nuevaFecha = "${arrayFecha[0]} de ${arrayFecha[1]} del  ${arrayFecha[2]}"
-
         val pLugarFecha =
-            Paragraph("\n$ciudad, $nuevaFecha\n\n").setTextAlignment(TextAlignment.RIGHT)
+            Paragraph("\n$ciudad, $fecha\n\n").setTextAlignment(TextAlignment.RIGHT)
                 .setFontSize(tamanoLetra)
 
         //Cuerpo
@@ -104,15 +101,11 @@ class PlantillaUno(
             sr = "la Srta."
         }
 
-        val arrayFechaInicio = fechaInicio.split("/")
-        val nuevaFechaInicio = "${arrayFechaInicio[1]} del ${arrayFechaInicio[2]}"
-        val arrayFechaSalida = fechaSalida.split("/")
-        var nuevaFechaSalida = "${arrayFechaSalida[1]} del ${arrayFechaSalida[2]}"
         var strContextoNuevo = strContexto.replace("[sr]", sr)
             .replace("[nombreTrabajador]", nombreTrabajor)
             .replace("[puesto]", puesto)
-            .replace("[fechaInicio]", nuevaFechaInicio)
-            .replace("[fechaSalida]", nuevaFechaSalida)
+            .replace("[fechaInicio]", fechaInicio)
+            .replace("[fechaSalida]", fechaSalida)
             .replace("[nombreEmpresa]", nombreEmpresa)
 
         val pContexto = Paragraph(strContextoNuevo).setTextAlignment(TextAlignment.JUSTIFIED)

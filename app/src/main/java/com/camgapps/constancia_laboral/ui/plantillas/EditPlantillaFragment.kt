@@ -6,6 +6,8 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.*
+import android.widget.ArrayAdapter
+import android.widget.Spinner
 import android.widget.Toast
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
@@ -32,6 +34,10 @@ class EditPlantillaFragment : Fragment() {
     var position = 0
 
 
+    val listSizeLetters  = arrayOf("12", "13", "14","16", "17","18", "19")
+    val selectionSizeLetter = 3
+
+
     lateinit var setListener: DatePickerDialog.OnDateSetListener
     lateinit var setListenerInicio: DatePickerDialog.OnDateSetListener
     lateinit var setListenerSalida: DatePickerDialog.OnDateSetListener
@@ -42,7 +48,7 @@ class EditPlantillaFragment : Fragment() {
     private var month by Delegates.notNull<Int>()
     private var day by Delegates.notNull<Int>()
 
-    val df = SimpleDateFormat("d/MMMM/yyyy", Locale.getDefault())
+    val df = SimpleDateFormat("d 'de' MMMM 'del' yyyy", Locale.getDefault())
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -74,6 +80,16 @@ class EditPlantillaFragment : Fragment() {
         binding.textInputFecha.editText!!.setText(df.format(calendar.time))
 
         initEvents()
+
+        val spinner: Spinner = binding.spinnerSizeLetter
+        ArrayAdapter( requireContext(), android.R.layout.simple_spinner_item, listSizeLetters).also { adapter ->
+            // Specify the layout to use when the list of choices appears
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            // Apply the adapter to the spinner
+            spinner.adapter = adapter
+        }
+
+        spinner.setSelection(selectionSizeLetter)
 
         setHasOptionsMenu(true)
 
@@ -258,6 +274,8 @@ class EditPlantillaFragment : Fragment() {
             sexo = 1
         }
 
+        val sizeLetter: Float = binding.spinnerSizeLetter.selectedItem.toString().toFloat()
+
         when {
             lugar.trim().isBlank() && visibilityEt.vCiudad -> {
                 binding.textInputCiudad.error = getString(R.string.lugar_vacio)
@@ -297,7 +315,7 @@ class EditPlantillaFragment : Fragment() {
             }
             else -> {
                 val calendarIns = Calendar.getInstance().time
-                val now = SimpleDateFormat("dd-MM-yyyy").format(calendarIns)
+                val now = SimpleDateFormat("d 'de' MMMM 'del' yyyy").format(calendarIns)
 
                 val outputDir = requireContext().cacheDir
 
@@ -321,7 +339,8 @@ class EditPlantillaFragment : Fragment() {
                             fechaSalida,
                             puesto,
                             sexo,
-                            numeroEmisor
+                            numeroEmisor,
+                            sizeLetter
                         )
                         plantillaLaboral.createPdf(outputFile, mUri)
                     }
@@ -344,7 +363,8 @@ class EditPlantillaFragment : Fragment() {
                             puesto,
                             sexo,
                             dni,
-                            numeroEmisor
+                            numeroEmisor,
+                            sizeLetter
                         )
                         plantillaLaboral.createPdf(outputFile, mUri)
                     }
@@ -364,7 +384,8 @@ class EditPlantillaFragment : Fragment() {
                             fechaSalida,
                             puesto,
                             sexo,
-                            nombreEmpresa
+                            nombreEmpresa,
+                            sizeLetter
                         )
                         plantillaLaboral.createPdf(outputFile)
                     }
@@ -384,7 +405,8 @@ class EditPlantillaFragment : Fragment() {
                             puesto,
                             sueldo,
                             numeroEmisor,
-                            nombreEmpresa
+                            nombreEmpresa,
+                            sizeLetter
                         )
                         plantillaLaboral.createPdf(outputFile)
                     }
@@ -407,7 +429,8 @@ class EditPlantillaFragment : Fragment() {
                             sexo,
                             nombreEmpresa,
                             numeroEmisor,
-                            sueldo
+                            sueldo,
+                            sizeLetter
                         )
                         plantillaLaboral.createPdf(outputFile)
                     }

@@ -21,7 +21,8 @@ class PlantillaCinco(
     var sexo: Int,
     var nombreEmpresa: String,
     var numero: String,
-    var sueldo: String
+    var sueldo: String,
+    var tamanoLetra: Float
 ) {
 
     companion object {
@@ -43,7 +44,6 @@ class PlantillaCinco(
         }
     }
 
-    val tamanoLetra = 16F
 
 
     var strContexto =
@@ -71,8 +71,7 @@ class PlantillaCinco(
         val pTitulo = Paragraph(textBold).setTextAlignment(TextAlignment.CENTER).setFontSize(tamanoLetra)
 
         //Ciudad y Fecha
-        val arrayFecha = fecha.split("/")
-        val nuevaFecha = "${arrayFecha[0]} de ${arrayFecha[1]} del  ${arrayFecha[2]}"
+
 
 
         //Cuerpo
@@ -83,19 +82,16 @@ class PlantillaCinco(
             ciudadano = "la ciudadana"
         }
 
-        val arrayFechaInicio = fechaInicio.split("/")
-        val nuevaFechaInicio = "${arrayFechaInicio[1]} del ${arrayFechaInicio[2]}"
-        val arrayFechaSalida = fechaSalida.split("/")
-        var nuevaFechaSalida = "${arrayFechaSalida[1]} del ${arrayFechaSalida[2]}"
+
         var strContextoNuevo = strContexto.replace("[ciudadano]", ciudadano)
             .replace("[nombreTrabajador]", nombreTrabajor)
             .replace("[puesto]", puesto)
             .replace("[dni]", dni)
-            .replace("[fechaInicio]", nuevaFechaInicio)
-            .replace("[fechaSalida]", nuevaFechaSalida)
+            .replace("[fechaInicio]", fechaInicio)
+            .replace("[fechaSalida]", fechaSalida)
             .replace("[nombreEmpresa]", nombreEmpresa)
             .replace("[ciudad]", ciudad)
-            .replace("[fecha]", nuevaFecha)
+            .replace("[fecha]", fecha)
             .replace("[salario]", sueldo)
 
         val pContexto = Paragraph(strContextoNuevo).setTextAlignment(TextAlignment.JUSTIFIED).setFontSize(tamanoLetra)
