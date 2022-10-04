@@ -20,9 +20,11 @@
         <entry key="..\:/Users/christian/AndroidStudioProjects/ConstanciaLaboral/app/src/main/res/layout/fragment_carta_libre.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/christian/AndroidStudioProjects/ConstanciaLaboral/app/src/main/res/layout/fragment_edit_plantilla.xml" value="0.2" />
         <entry key="..\:/Users/christian/AndroidStudioProjects/ConstanciaLaboral/app/src/main/res/layout/fragment_home.xml" value="0.264" />
+        <entry key="..\:/Users/christian/AndroidStudioProjects/ConstanciaLaboral/app/src/main/res/layout/fragment_mi_constancia_view.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/christian/AndroidStudioProjects/ConstanciaLaboral/app/src/main/res/layout/fragment_pdf_preview.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/christian/AndroidStudioProjects/ConstanciaLaboral/app/src/main/res/layout/fragment_plantillas.xml" value="0.176" />
         <entry key="..\:/Users/christian/AndroidStudioProjects/ConstanciaLaboral/app/src/main/res/menu/menu_activity_mi_carta.xml" value="0.2421875" />
+        <entry key="..\:/Users/christian/AndroidStudioProjects/ConstanciaLaboral/app/src/main/res/menu/menu_view_plantilla.xml" value="0.20416666666666666" />
       </map>
     </option>
   </component>

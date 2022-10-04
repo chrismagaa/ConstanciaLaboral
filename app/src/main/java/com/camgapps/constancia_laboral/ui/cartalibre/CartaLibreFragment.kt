@@ -17,7 +17,6 @@ import kotlin.properties.Delegates
 
 class CartaLibreFragment : Fragment() {
 
-
     lateinit var setListener: DatePickerDialog.OnDateSetListener
 
     val df = SimpleDateFormat("d/MMMM/yyyy", Locale.getDefault())
