@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_share"
+        android:icon="@drawable/ic_baseline_share_24_black"
+        android:title="@string/txt_share" />
+    <item
+        android:id="@+id/menu_imprimir"
+        android:icon="@drawable/ic_baseline_print_24_black"
+        android:title="@string/txt_imprimir"/>
+    <item
+        android:id="@+id/menu_delete"
+        android:icon="@drawable/ic_baseline_delete_24"
+        android:title="@string/txt_delete" />
+</menu>

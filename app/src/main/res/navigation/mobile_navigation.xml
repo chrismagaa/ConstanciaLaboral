@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.camgapps.constancia_laboral.ui.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/nav_plantillas"
+        android:name="com.camgapps.constancia_laboral.ui.plantillas.PlantillasFragment"
+        android:label="@string/menu_plantillas"
+        tools:layout="@layout/fragment_plantillas" >
+        <action
+            android:id="@+id/action_nav_plantillas_to_viewPlantillaFragment"
+            app:destination="@id/viewPlantillaFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:popEnterAnim="@android:anim/fade_in" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_constancias"
+        android:name="com.camgapps.constancia_laboral.ui.constancias.ConstanciasFragment"
+        android:label="@string/menu_constancias"
+        tools:layout="@layout/fragment_constancias" >
+        <action
+            android:id="@+id/action_nav_constancias_to_miConstanciaViewFragment"
+            app:destination="@id/miConstanciaViewFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:popEnterAnim="@android:anim/fade_in" />
+    </fragment>
+    <fragment
+        android:id="@+id/viewPlantillaFragment"
+        android:name="com.camgapps.constancia_laboral.ui.plantillas.ViewPlantillaFragment"
+        android:label="Plantilla"
+        tools:layout="@layout/fragment_view_plantilla">
+        <action
+            android:id="@+id/action_viewPlantillaFragment_to_editPlantillaFragment"
+            app:destination="@id/editPlantillaFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:popEnterAnim="@android:anim/fade_in" />
+    </fragment>
+    <fragment
+        android:id="@+id/editPlantillaFragment"
+        android:name="com.camgapps.constancia_laboral.ui.plantillas.EditPlantillaFragment"
+        android:label="@string/txt_editar"
+        tools:layout="@layout/fragment_edit_plantilla" >
+        <action
+            android:id="@+id/action_editPlantillaFragment_to_pdfPreviewFragment"
+            app:destination="@id/pdfPreviewFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:popEnterAnim="@android:anim/fade_in" />
+    </fragment>
+    <fragment
+        android:id="@+id/miConstanciaViewFragment"
+        android:name="com.camgapps.constancia_laboral.ui.constancias.MiConstanciaViewFragment"
+        android:label="Mi constancia"
+        tools:layout="@layout/fragment_mi_constancia_view" />
+    <fragment
+        android:id="@+id/pdfPreviewFragment"
+        android:name="com.camgapps.constancia_laboral.ui.plantillas.PdfPreviewFragment"
+        android:label="@string/txt_vista_previa"
+        tools:layout="@layout/fragment_pdf_preview" >
+        <action
+            android:id="@+id/action_pdfPreviewFragment_to_miConstanciaViewFragment"
+            app:destination="@id/miConstanciaViewFragment"
+            app:popUpTo="@id/nav_home" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_feedback"
+        android:name="com.camgapps.constancia_laboral.ui.retroalimentacion.FeedbackFragment"
+        android:label="Retroalimentación"
+        tools:layout="@layout/fragment_blank" />
+    <fragment
+        android:id="@+id/cartaLibreFragment"
+        android:name="com.camgapps.constancia_laboral.ui.cartalibre.CartaLibreFragment"
+        android:label="Carta libre"
+        tools:layout="@layout/fragment_carta_libre" >
+        <action
+            android:id="@+id/action_cartaLibreFragment_to_pdfPreviewFragment"
+            app:destination="@id/pdfPreviewFragment" />
+    </fragment>
+</navigation>
