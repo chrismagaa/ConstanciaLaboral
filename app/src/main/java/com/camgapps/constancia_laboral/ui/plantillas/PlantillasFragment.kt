@@ -60,6 +60,8 @@ class PlantillasFragment : Fragment() {
                 }
             }
         }
+
+        adapter.setData(plantillas.toList() as List<Plantilla>)
         binding.list.adapter = adapter
         binding.list.layoutManager = GridLayoutManager(requireContext(), 2)
 
