@@ -10,13 +10,13 @@ import androidx.navigation.NavController
 import androidx.recyclerview.widget.RecyclerView
 import com.camgapps.constancia_laboral.R
 import com.camgapps.constancia_laboral.databinding.FragmentItemAdapterBinding
+import java.util.ArrayList
 
 class PlantillasAdapter(
-        private val nav: NavController,
-        val plantillas: List<Plantilla>
+    val onClick: (Plantilla, Int) -> Unit
 ): RecyclerView.Adapter<PlantillasAdapter.ViewHolder>() {
 
-
+    var plantillas: List<Plantilla> = ArrayList()
     inner class ViewHolder(view: View): RecyclerView.ViewHolder(view){
         val binding = FragmentItemAdapterBinding.bind(view)
     }
@@ -34,17 +34,22 @@ class PlantillasAdapter(
         holder.binding.imageViewPlantilla.setImageResource(item.img)
         holder.binding.textViewPlantilla.text = item.name
 
+        if(item.isActive){
+            holder.binding.ivCandado.visibility = View.GONE
+        }
+
         holder.binding.cardViewPlantilla.setOnClickListener {
-            val bundle = bundleOf(
-                "position" to position,
-                "img" to item.img
-            )
-            nav.navigate(R.id.action_nav_plantillas_to_viewPlantillaFragment, bundle)
+            onClick(item, position)
         }
 
     }
 
     override fun getItemCount(): Int = plantillas.size
+
+    fun setData(list: List<Plantilla>) {
+        this.plantillas = list
+        notifyDataSetChanged()
+    }
 
 
 }
